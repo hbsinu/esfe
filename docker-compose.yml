@@ -6,6 +6,25 @@ networks:
 
 services:
   app:
+    image: docker-nextjs-dev
+    build: .
+    ports:
+      - 3000:3000
+    #   volumes:
+    #     # - ./src:/var/www/html
+    #     - ./pages:/app/pages
+    #     - ./public:/app/public
+    #     - ./styles:/app/styles
+    #   ports:
+    #     - "3000:3000"
+    #     - "3001:3001"
+    #     - "5173:5173"
+    #   # working_dir: /var/www/html
+    #   entrypoint: [ 'npm' ]
+    #   networks:
+    #     - next-enrollment-app
+# services:
+#   app:
     # build:
     #   context: ./dockerfiles
     #   dockerfile: nginx.dockerfile
@@ -77,21 +96,21 @@ services:
   #   networks:
   #     - next-enrollment-app
 
-  npm:
-    image: node:current-alpine
-    volumes:
-      - ./src:/var/www/html
-      - ./pages:/app/pages
-      - ./public:/app/public
-      - ./styles:/app/styles
-    ports:
-      - "3000:3000"
-      - "3001:3001"
-      - "5173:5173"
-    working_dir: /var/www/html
-    entrypoint: [ 'npm' ]
-    networks:
-      - next-enrollment-app
+  # npm:
+  #   image: node:current-alpine
+  #   volumes:
+  #     # - ./src:/var/www/html
+  #     - ./pages:/app/pages
+  #     - ./public:/app/public
+  #     - ./styles:/app/styles
+  #   ports:
+  #     - "3000:3000"
+  #     - "3001:3001"
+  #     - "5173:5173"
+  #   # working_dir: /var/www/html
+  #   entrypoint: [ 'npm' ]
+  #   networks:
+  #     - next-enrollment-app
 
   # artisan:
   #   build:
